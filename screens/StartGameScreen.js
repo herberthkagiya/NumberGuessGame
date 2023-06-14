@@ -19,7 +19,6 @@ function StartGameScreen(){
                 <View style={styles.buttonContainer}>
                     <PrimaryButton>Confirm</PrimaryButton>
                 </View>
-
             </View>
             
         </View>
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({
         marginTop: 100,
         padding: 16,
         marginHorizontal: 24, 
-        backgroundColor: "#72063c",
+        backgroundColor: "#3b012f",
         borderRadius: 10,
         elevation: 4,
         shadowColor: "black",
