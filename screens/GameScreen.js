@@ -3,6 +3,9 @@ import Title from "../components/ui/Title";
 import { useState, useEffect } from "react";
 import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton"
+import Card from "../components/ui/Card";
+import InstructionText from "../components/ui/InstructionText";
+
 
 function generateRandomNumberBetween(min, max, exclude) {
     const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -63,23 +66,24 @@ function GameScreen({userNumber, onGameOver}){
 
                 <NumberContainer>{currentPhoneGuess}</NumberContainer>
 
-                <View>
-                    <Text>Higher or lower</Text>
+                <Card>
+                    <InstructionText style={styles.instructionText}>Higher or lower</InstructionText>
 
-                    <View>
-                        <PrimaryButton onPress={nextGuessHandler.bind(this, 'lower')}>
-                            -
-                        </PrimaryButton>
-                        <PrimaryButton onPress={nextGuessHandler.bind(this, 'greater')}>
-                                +
-                        </PrimaryButton>
+                    <View style={styles.buttonsContainer}>
+                        <View style={styles.buttonContainer}>
+                          <PrimaryButton onPress={nextGuessHandler.bind(this, 'lower')}>
+                              -
+                          </PrimaryButton>
+                        </View>
+
+                        <View style={styles.buttonContainer}>
+                          <PrimaryButton onPress={nextGuessHandler.bind(this, 'greater')}>
+                                  +
+                          </PrimaryButton>
+                        </View>
                     </View>
 
-                </View>
-
-                <View>
-                    <Text>Log Rounds</Text>
-                </View>
+                </Card>
             </SafeAreaView>
         </View>
     );
@@ -92,6 +96,17 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 40,
 
+    },
+
+    instructionText: {
+      marginBottom: 12
+    },
+
+    buttonsContainer: {
+      flexDirection: "row",
+    },
+
+    buttonContainer: {
+      flex: 1
     }
-    
 });
